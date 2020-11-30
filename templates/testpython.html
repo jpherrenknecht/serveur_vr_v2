@@ -1,0 +1,24 @@
+<head>
+
+    <head>
+        <meta name="viewport"   content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <meta charset="utf-8"/>     
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script  type="text/javascript" src="{{ url_for('static', filename='js/test.js') }}"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/test.css') }}">
+        <script  type="text/javascript" src="{{ url_for('static', filename='js/courses.json') }}"></script>
+<script type="text/javascript">
+        variable1 =  {{ variablenumerique }}  // dans le javascript
+        variable2 =  '{{ variabletexte }}'
+</script>
+ </head>
+ <title>Recup_python </title>
+</head>
+
+<body><h2>Recuperation sorties python</h2></body>
+{{ variabletexte }}       <!-- ou dans le html -->          
+<br> Valeur : {{ variablenumerique }}
+
+</html>

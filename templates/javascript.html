@@ -1,0 +1,47 @@
+<html>
+    <head>
+
+        <head>
+            <meta name="viewport"   content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+            <meta charset="utf-8"/>     
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+            <script  type="text/javascript" src="{{ url_for('static', filename='js/test.js') }}"></script>
+            <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/test.css') }}">
+            <script  type="text/javascript" src="{{ url_for('static', filename='js/courses.json') }}"></script>
+        </head>
+
+
+        
+
+
+
+
+    <title>Essai Javascript </title>
+    </head>
+<body>
+    <h2>Essai integration javascript Jquery et CSS </h2>
+    <h2>Dans render template</h2>
+    <div class='red'>Essai d'importation css</div><br>
+    <input type= 'button' onclick="alert1()" value='Test js'>
+    <div id='nomcourse'>Nom de la course
+    </div>
+
+
+    <script type="text/javascript">
+ 
+        //ajout d'un nouvel element  dans le corps du HTML
+    //console.log(courses[429]['nom'])
+      
+       let elt = document.getElementById("nomcourse");
+       const newElt = document.createElement("div");
+       elt.appendChild(newElt);
+       newElt.classList.add("blue"); 
+       newElt.innerHTML="<br>"+courses[429]['nom']
+
+    </script>
+
+</body>
+
+</html>
