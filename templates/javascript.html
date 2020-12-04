@@ -9,37 +9,50 @@
             <script  type="text/javascript" src="{{ url_for('static', filename='js/test.js') }}"></script>
             <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
             <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/test.css') }}">
-            <script  type="text/javascript" src="{{ url_for('static', filename='js/courses.json') }}"></script>
+
+            <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/favicon.ico') }}" />
+            <!-- <script  type="text/javascript" src="{{ url_for('static', filename='js/courses.json') }}"></script> -->
         </head>
 
-
-        
-
-
-
-
+       
     <title>Essai Javascript </title>
     </head>
 <body>
-    <h2>Essai integration javascript Jquery et CSS </h2>
-    <h2>Dans render template</h2>
-    <div class='red'>Essai d'importation css</div><br>
-    <input type= 'button' onclick="alert1()" value='Test js'>
-    <div id='nomcourse'>Nom de la course
-    </div>
+        <h2>Essai integration javascript Jquery et CSS </h2>
+        <h2>Dans render template</h2>
+        <div class='red'>Essai d'importation css</div><br>
+        <input type= 'button' onclick="alert1()" value='Test js'>
+        <div id='nomcourse'>Nom de la course
+        </div>
 
 
-    <script type="text/javascript">
+    <script type="text/javascript">    // permet de recuper le json si charge en prealables avec courses =
  
-        //ajout d'un nouvel element  dans le corps du HTML
-    //console.log(courses[429]['nom'])
-      
-       let elt = document.getElementById("nomcourse");
-       const newElt = document.createElement("div");
-       elt.appendChild(newElt);
-       newElt.classList.add("blue"); 
-       newElt.innerHTML="<br>"+courses[429]['nom']
+        
+        console.log ('Test recuperation json')
+            var requestURL= " {{ url_for('static', filename='js/courses.json') }}"
+            var request = new XMLHttpRequest();
+            request.open('GET', requestURL);
+            request.responseType = 'json';
+            request.send();
+            request.onload = function()
+            {
+            var courses= request.response;
+            nomcourse1=courses["438.1"]['nom']
+            console.log(nomcourse1)
+            let elt = document.getElementById("nomcourse");
+            const newElt = document.createElement("div");
+            elt.appendChild(newElt);
+            newElt.classList.add("blue"); 
+            newElt.innerHTML="<br>"+nomcourse1
 
+
+            }
+ 
+ 
+ //ajout d'un nouvel element  dans le corps du HTML
+        
+       
     </script>
 
 </body>
